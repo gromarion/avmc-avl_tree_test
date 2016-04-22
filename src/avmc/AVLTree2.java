@@ -424,6 +424,7 @@ public class AVLTree2<T extends Comparable<? super T>> {
        */
       else if(t.left != null) {
           t.element = findMax(t.left).element;
+          // el resultado no se asigna a nada, entonces la remoción no se refleja...
           remove(t.element, t.left);
        
           if((t.right != null) && (t.right.height - t.left.height >= 2)) {
