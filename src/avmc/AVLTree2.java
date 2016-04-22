@@ -13,14 +13,14 @@ import java.lang.StringBuilder;
  *
  * @author Justin Ethier
  */
-class AVLTree2<T extends Comparable<? super T>> {
+public class AVLTree2<T extends Comparable<? super T>> {
   /** 
    * AvlNode is a container class that is used to store each element 
    * (node) of an AVL tree. 
    *  
    * @author Justin Ethier
    */
-  protected static class AvlNode<T> {
+  public static class AvlNode<T> {
     
     /**
      * Node data
@@ -62,6 +62,10 @@ class AVLTree2<T extends Comparable<? super T>> {
       element = theElement;
       left = lt;
       right = rt;
+    }
+    
+    public T getElement() {
+    	return this.element;
     }
   }
 
