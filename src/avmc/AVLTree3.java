@@ -23,6 +23,10 @@ public class AVLTree3 {
 		// start recursive procedure for inserting the node
 		insertAVL(this.root, n);
 	}
+	
+	public AvlNode root () {
+		return root;
+	}
 
 	/**
 	 * Recursive method to insert a node into a tree.
@@ -311,7 +315,7 @@ public class AVLTree3 {
 	 * @param cur
 	 * @return The height of a node (-1, if node is not existent eg. NULL).
 	 */
-	private int height(AvlNode cur) {
+	public int height(AvlNode cur) {
 		if (cur == null) {
 			return -1;
 		}
@@ -417,9 +421,7 @@ public class AVLTree3 {
 		public String toString() {
 			return "" + key;
 		}
-
 	}
-
 }
 
 /** Here is the AVL-Node class for Completenesse **/
