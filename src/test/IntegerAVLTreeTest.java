@@ -54,6 +54,4 @@ public class IntegerAVLTreeTest {
 		assertTrue(tree.search(1));
 		assertTrue(tree.search(3));
 	}
-	
-	
 }

@@ -42,7 +42,8 @@ public class AVLTree<T extends Comparable<T>> {
 
 	public Node<T> insert(T data) {
 		root = insert(root, data);
-		switch (balanceNumber(root)) {
+		int balance = balanceNumber(root);
+		switch (balance) {
 		case 1:
 			root = rotateLeft(root);
 			break;
@@ -69,7 +70,8 @@ public class AVLTree<T extends Comparable<T>> {
 		}
 		// After insert the new node, check and rebalance the current node if
 		// necessary.
-		switch (balanceNumber(node)) {
+		int balance = balanceNumber(node);
+		switch (balance) {
 		case 1:
 			node = rotateLeft(node);
 			break;
@@ -103,6 +105,22 @@ public class AVLTree<T extends Comparable<T>> {
 		return p;
 	}
 
+	// El problema está en esta función: Cuando se chequea si la raíz del árbol se encuentra desbalanceada (-1),
+	// el algoritmo rota mal los nodos. El siguiente arbol:
+	//        3 q
+	//       / \
+	//    p 1   null c
+	//     / \
+	//a null  2 b
+	//
+	// Queda rotado de la siguiente manera:
+	//
+	//       1 p
+	//      / \
+	//   null  3 q
+	//        / \
+	//     b 2   null c
+	//
 	private Node<T> rotateRight(Node<T> node) {
 		Node<T> q = node;
 		Node<T> p = q.getLeft();
